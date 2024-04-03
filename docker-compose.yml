@@ -15,17 +15,19 @@ services:
       - postgresql_data:/var/lib/postgresql/data
   account-movement-service:
     build:
-        context: ./services/account-movement-service
-        dockerfile: Dockerfile
+      context: ./services/account-movement-service
+      dockerfile: Dockerfile
     container_name: account-movement-service
     ports:
       - "8183:8183"
     depends_on:
-        - postgresql
+      - postgresql
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql:5432/bank
       SPRING_DATASOURCE_USERNAME: bank
       SPRING_DATASOURCE_PASSWORD: password
+      SERVICES_CLIENT_PERSON_SERVICE_URL: http://client-person-service:8182
+
   client-person-service:
     build:
       context: ./services/client-person-service

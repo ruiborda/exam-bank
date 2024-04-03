@@ -1,0 +1,671 @@
+{
+	"info": {
+		"_postman_id": "d3d6cb80-ebaf-4ff9-b9b4-cfde51a52b4e",
+		"name": "Client Person Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13157375"
+	},
+	"item": [
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "find Client By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clientes/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2db1038d-15fc-4409-9d50-c6a156fdd1ea",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"identification\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"clientId\": \"<uuid>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete Client By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clientes/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "d83fb0eb-b0ab-4caf-a045-297317fa8198"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "client-id",
+					"item": [
+						{
+							"name": "{clientId}",
+							"item": [
+								{
+									"name": "find Client By Client Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clientes/client-id/:clientId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clientes",
+												"client-id",
+												":clientId"
+											],
+											"variable": [
+												{
+													"key": "clientId",
+													"value": "2db1038d-15fc-4409-9d50-c6a156fdd1ea",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/clientes/client-id/:clientId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clientes",
+														"client-id",
+														":clientId"
+													],
+													"variable": [
+														{
+															"key": "clientId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"timestamp\": \"<dateTime>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"code\": \"<string>\",\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"identification\": \"<string>\",\n    \"address\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"clientId\": \"<uuid>\",\n    \"password\": \"<string>\",\n    \"status\": \"<boolean>\"\n  },\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"F\",\n  \"id\": \"<uuid>\",\n  \"identification\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"d83fb0eb-b0ab-4caf-a045-297317fa8198\",\n    \"name\": \"Usuario de prueba ACTUALIZADO\",\n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"13 junio y Equinoccial ACTUALIZADO\",\n    \"phone\": \"098874587\",\n    \"clientId\": \"3a0e4cd1-75f5-49fb-9053-98d357dde7bc\",\n    \"password\": \"1245\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": null,\n    \"message\": \"Cliente actualizado\",\n    \"status\": 200,\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": \"d83fb0eb-b0ab-4caf-a045-297317fa8198\",\n        \"clientId\": \"3a0e4cd1-75f5-49fb-9053-98d357dde7bc\",\n        \"name\": \"Usuario de prueba ACTUALIZADO\",\n        \"gender\": \"M\",\n        \"age\": 123,\n        \"identification\": \"70000002\",\n        \"address\": \"13 junio y Equinoccial ACTUALIZADO\",\n        \"phone\": \"098874587\",\n        \"password\": \"1245\",\n        \"status\": true\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "save Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"M\",\n  \"identification\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"id\": \"<uuid>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "client 01 \"Jose Lema\"",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"39676862-531f-49e7-abd1-c2954b411077\",\n    \"name\": \"Jose Lema\",\n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000001\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"clientId\": \"2db1038d-15fc-4409-9d50-c6a156fdd1ea\",\n    \"password\": \"1234\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"39676862-531f-49e7-abd1-c2954b411077\",\n    \"name\": \"Jose Lema\",\n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000001\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"clientId\": \"2db1038d-15fc-4409-9d50-c6a156fdd1ea\",\n    \"password\": \"1234\",\n    \"status\": true\n}"
+						},
+						{
+							"name": "client 01 \"Marianela Montalvo\"",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"d38c288e-0a5d-4215-8848-942fe53a208f\",\n    \"name\": \"Marianela Montalvo\",\n    \"gender\": \"F\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"Amazonas y NNUU\",\n    \"phone\": \"097548965\",\n    \"clientId\": \"f6acb3af-0292-447d-88c4-88e34fb64501\",\n    \"password\": \"5678\",\n    \"status\": true\n  }",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d38c288e-0a5d-4215-8848-942fe53a208f\",\n    \"name\": \"Marianela Montalvo\",\n    \"gender\": \"F\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"Amazonas y NNUU\",\n    \"phone\": \"097548965\",\n    \"clientId\": \"f6acb3af-0292-447d-88c4-88e34fb64501\",\n    \"password\": \"5678\",\n    \"status\": true\n  }"
+						},
+						{
+							"name": "client 03 \"Juan Osorio\"",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"69af08e3-3fde-4440-a3dc-90d6116d13db\",\n    \"name\": \"Juan Osorio\",\n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"13 junio y Equinoccial\",\n    \"phone\": \"098874587\",\n    \"clientId\": \"21ea3575-eb2e-4f5c-ad8e-8d542a84a2c4\",\n    \"password\": \"1245\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"69af08e3-3fde-4440-a3dc-90d6116d13db\",\n    \"name\": \"Juan Osorio\",\n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"13 junio y Equinoccial\",\n    \"phone\": \"098874587\",\n    \"clientId\": \"21ea3575-eb2e-4f5c-ad8e-8d542a84a2c4\",\n    \"password\": \"1245\",\n    \"status\": true\n}"
+						},
+						{
+							"name": "client 04 \"test user\"",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"d83fb0eb-b0ab-4caf-a045-297317fa8198\",\n \n    \"gender\": \"M\",\n    \"age\": 123,\n    \"identification\": \"70000002\",\n    \"address\": \"13 junio y Equinoccial\",\n    \"phone\": \"098874587\",\n    \"clientId\": \"3a0e4cd1-75f5-49fb-9053-98d357dde7bc\",\n    \"password\": \"1245\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Cliente guardado\",\n    \"status\": 200,\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": \"d83fb0eb-b0ab-4caf-a045-297317fa8198\",\n        \"name\": \"Usuario de prueba\",\n        \"gender\": \"M\",\n        \"age\": 123,\n        \"identification\": \"70000002\",\n        \"address\": \"13 junio y Equinoccial\",\n        \"phone\": \"098874587\",\n        \"clientId\": \"3a0e4cd1-75f5-49fb-9053-98d357dde7bc\",\n        \"password\": \"1245\",\n        \"status\": true\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "patch Client",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"gender\": \"M\",\n  \"age\": \"<integer>\",\n  \"identification\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"d83fb0eb-b0ab-4caf-a045-297317fa8198\",\n    \"name\": \"Usuario de prueba PARCHADO\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"identification\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"clientId\": \"<uuid>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "find All Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"timestamp\": \"<dateTime>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"code\": \"<string>\",\n  \"data\": {},\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8182"
+		}
+	]
+}

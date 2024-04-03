@@ -55,4 +55,15 @@ public class MovementConverter {
                 .accountId(entity.getAccountId())
                 .build();
     }
+
+    public static FindMovementsByDateRangeResponseDTO toFindMovementsByDateRangeResponseDTO(Movement entity) {
+        return FindMovementsByDateRangeResponseDTO.builder()
+                .id(entity.getId())
+                .date(entity.getDate())
+                .movementType(entity.getMovementType())
+                .value(entity.getValue())
+                .balance(entity.getBalance())
+                .accountId(entity.getAccountId())
+                .build();
+    }
 }

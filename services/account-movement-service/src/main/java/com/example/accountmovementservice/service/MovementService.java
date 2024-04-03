@@ -4,6 +4,7 @@ import com.example.accountmovementservice.common.DefaultResponse;
 import com.example.accountmovementservice.converter.AccountConverter;
 import com.example.accountmovementservice.converter.MovementConverter;
 import com.example.accountmovementservice.dtos.account.FindAccountByIdResponseDTO;
+import com.example.accountmovementservice.dtos.client_person_external_service.FindByClientIdResponseDTO;
 import com.example.accountmovementservice.dtos.movement.*;
 import com.example.accountmovementservice.entity.Account;
 import com.example.accountmovementservice.entity.Movement;
@@ -14,10 +15,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.time.LocalDate;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RequiredArgsConstructor
 @Service
@@ -40,6 +41,38 @@ public class MovementService {
         } catch (Exception e) {
             log.error("Error al buscar los movimientos", e);
             return DefaultResponse.<Iterable<Movement>>builder()
+                    .message("Error al buscar los movimientos")
+                    .status(500)
+                    .code("INTERNAL_SERVER_ERROR")
+                    .build();
+        }
+    }
+
+    public DefaultResponse<Iterable<FindMovementsByDateRangeResponseDTO>> findMovementsByDateRange(LocalDate startDate, LocalDate endDate) {
+        try {
+            Iterable<Movement> movements = movementRepository.findMovementsByDateRange(startDate, endDate);
+            List<FindMovementsByDateRangeResponseDTO> response = StreamSupport.stream(movements.spliterator(), false)
+                    .map(movement -> {
+                        FindMovementsByDateRangeResponseDTO dto = MovementConverter.toFindMovementsByDateRangeResponseDTO(movement);
+                        Account account = accountRepository.findById(movement.getAccountId()).orElseThrow();
+                        FindByClientIdResponseDTO client = clientPersonExternalService.findClientByClientId(account.getClientId().toString());
+                        FindAccountByIdResponseDTO accountDTO = AccountConverter.toFindAccountByIdResponseDTO(account);
+                        dto.setAccountNumber(accountDTO.getAccountNumber());
+                        dto.setClientName(client.getData().getName());
+                        return dto;
+                    })
+                    .collect(Collectors.toList());
+
+            return DefaultResponse.<Iterable<FindMovementsByDateRangeResponseDTO>>builder()
+                    .message("Movimientos encontrados")
+                    .success(true)
+                    .status(200)
+                    .code("OK")
+                    .data(response)
+                    .build();
+        } catch (Exception e) {
+            log.error("Error al buscar los movimientos", e);
+            return DefaultResponse.<Iterable<FindMovementsByDateRangeResponseDTO>>builder()
                     .message("Error al buscar los movimientos")
                     .status(500)
                     .code("INTERNAL_SERVER_ERROR")

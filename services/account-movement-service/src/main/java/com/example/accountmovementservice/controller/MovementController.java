@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @RestController
@@ -20,6 +21,11 @@ public class MovementController {
     @GetMapping
     public ResponseEntity<DefaultResponse<Iterable<Movement>>> findAllMovements() {
         return ResponseEntity.ok(movementService.findAllMovements());
+    }
+
+    @GetMapping("/reportes")
+    public ResponseEntity<DefaultResponse<Iterable<FindMovementsByDateRangeResponseDTO>>> findMovementsByDateRange(@Valid @RequestParam LocalDate startDate, @Valid @RequestParam LocalDate endDate) {
+        return ResponseEntity.ok(movementService.findMovementsByDateRange(startDate, endDate));
     }
 
     @GetMapping("/{id}")

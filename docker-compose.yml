@@ -1,0 +1,44 @@
+version: '3.8'
+
+name: bank
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: bank
+      POSTGRES_USER: bank
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+  account-movement-service:
+    build:
+        context: ./services/account-movement-service
+        dockerfile: Dockerfile
+    container_name: account-movement-service
+    ports:
+      - "8183:8183"
+    depends_on:
+        - postgresql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql:5432/bank
+      SPRING_DATASOURCE_USERNAME: bank
+      SPRING_DATASOURCE_PASSWORD: password
+  client-person-service:
+    build:
+      context: ./services/client-person-service
+      dockerfile: Dockerfile
+    container_name: client-person-service
+    ports:
+      - "8182:8182"
+    depends_on:
+      - postgresql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql:5432/bank
+      SPRING_DATASOURCE_USERNAME: bank
+      SPRING_DATASOURCE_PASSWORD: password
+
+volumes:
+  postgresql_data:

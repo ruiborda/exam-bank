@@ -53,6 +53,7 @@ public class MovementService {
             Iterable<Movement> movements = movementRepository.findMovementsByDateRange(startDate, endDate);
             List<FindMovementsByDateRangeResponseDTO> response = StreamSupport.stream(movements.spliterator(), false)
                     .map(movement -> {
+                        // TODO: optimizar con peticiones masivas
                         FindMovementsByDateRangeResponseDTO dto = MovementConverter.toFindMovementsByDateRangeResponseDTO(movement);
                         Account account = accountRepository.findById(movement.getAccountId()).orElseThrow();
                         FindByClientIdResponseDTO client = clientPersonExternalService.findClientByClientId(account.getClientId().toString());
